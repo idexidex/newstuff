@@ -246,7 +246,7 @@ protected void onStart(){
 		{
 			case R.id.btnSave:
 				dbWr.WriteToSql(currentTable,timeField.getText().toString(), dateField.getText().toString(), numericField.getText().toString(), textField.getText().toString(), comment.getText().toString(), nalich.getText().toString(), "приход", chId.getText().toString(),this);
-				dbWr.DataToLog(timeField.getText().toString(), dateField.getText().toString(), numericField.getText().toString(), textField.getText().toString());
+				//dbWr.DataToLog(timeField.getText().toString(), dateField.getText().toString(), numericField.getText().toString(), textField.getText().toString());
 				
 				Toast.makeText(this, "Saved!", Toast.LENGTH_LONG).show();
 				SimpleDateFormat stf = new SimpleDateFormat("HH:mm:ss");
@@ -265,6 +265,9 @@ protected void onStart(){
 				edChid.commit();
 				nextChid= nextChid+1;
 				chId.setText(""+nextChid);
+				CsvExporter csve = new CsvExporter(this, dbWr);
+				csve.execute("");
+				
 			break;
 			
 			case R.id.btnSave2:

@@ -112,7 +112,9 @@ DbTool db = new DbTool();
 				Toast.makeText(this, "Ты убил их! Изверг!", Toast.LENGTH_SHORT).show();
 			break;
 			case 2:
-				new ExportDatabaseCSVTask().execute("");
+			CsvExporter csve = new CsvExporter(this, db);
+			csve.execute("");
+				//new ExportDatabaseCSVTask().execute("");
 			break;
 			case android.R.id.home:
 				NavUtils.navigateUpFromSameTask(this);
@@ -130,6 +132,7 @@ DbTool db = new DbTool();
 		}
 		return true;
 	}
+	/*
 	
 	public class ExportDatabaseCSVTask extends AsyncTask<String, Void, Boolean> {
 	    private final ProgressDialog dialog = new ProgressDialog(Box.this);
@@ -186,4 +189,6 @@ DbTool db = new DbTool();
 	        }
 	    }
 	}
+	
+	*/
 }
